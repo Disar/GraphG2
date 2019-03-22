@@ -88,7 +88,7 @@ class NodeTypes {
 		}
 	}
 
-	@category("Output")
+	@nodeData("Output", "Surface")
 	public static function createSurfaceNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -121,7 +121,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Value")
+	@nodeData("Value", "Time")
 	public static function createTimeNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -146,7 +146,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Texture")
+	@nodeData("Texture", "Image")
 	public static function createTextureNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -212,7 +212,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Vector", "Vector 2D")
+	@nodeData("Vector", "Vector 2D")
 	public static function createVector2Node(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -258,7 +258,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Math")
+	@nodeData("Math")
 	public static function createVectorLengthNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -293,7 +293,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Vector", "UV Scroller")
+	@nodeData("Vector", "UV Scroller")
 	public static function createUVScrollerNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -339,7 +339,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Value")
+	@nodeData("Value", "Screen Resolution")
 	public static function createResolutionNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -390,7 +390,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Value")
+	@nodeData("Value", "Float Value")
 	public static function createFloatNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -424,7 +424,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Mesh")
+	@nodeData("Mesh", "Geometry Data")
 	public static function createGeometryNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -457,7 +457,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Color")
+	@nodeData("Color", "RGB value")
 	public static function createRGBANode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -518,12 +518,12 @@ class NodeTypes {
 		};
 	}
 
-	@category("Color")
+	@nodeData("Color", "Mix Colors")
 	public static function createMixColorNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
 			id: nodeID,
-			name: "Mix Color",
+			name: "Mix Colors",
 			type: "RGBA",
 			x: 0,
 			y: 0,
@@ -571,7 +571,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Color")
+	@nodeData("Color", "Gradient")
 	public static function createGradientNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -622,7 +622,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Math")
+	@nodeData("Math")
 	public static function createMathNode(graph:Nodes, canvas:TNodeCanvas, type:MathNodeType):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -669,7 +669,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Math")
+	@nodeData("Math")
 	public static function createSecondaryMathNode(graph:Nodes, canvas:TNodeCanvas, type:SecondaryMathNodeTypes):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -705,7 +705,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Math")
+	@nodeData("Math")
 	public static function createVectorMathNode(graph:Nodes, canvas:TNodeCanvas, type:VectorMathNodeType):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
@@ -752,7 +752,7 @@ class NodeTypes {
 		};
 	}
 
-	@category("Mesh")
+	@nodeData("Mesh", "UV Coordinates")
 	public static function createUVCoordNode(graph:Nodes, canvas:TNodeCanvas):TNode {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {

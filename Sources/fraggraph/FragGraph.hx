@@ -21,12 +21,26 @@ class FragGraph {
 	var ui:Zui;
 	var controlIsDown:Bool = false;
 	var meshButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Mesh");
+	var meshNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Mesh",false);
+
 	var outputButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Output");
+	var outputNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Output",false);
+	
 	var textureButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Texture");
+	var textureNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Texture",false);
+	
 	var valueButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Value");
+	var valueNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Value",false);
+	
 	var mathButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Math");
+	var mathNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Math",false);
+	
 	var vectorButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Vector");
+	var vectorNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Vector",false);
+	
 	var colorButtons:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Color");
+	var colorNames:Array<String> = MacroUtil.getNodeNames(NodeTypes, "Color",false);
+
 	var grid:Image;
 	var outputImage:Image;
 	var oldX:Int = 0;
@@ -144,23 +158,23 @@ class FragGraph {
 			// 	}
 			// }
 			if (ui.panel(Id.handle(), "Mesh", 0, true)) {
-				for (button in meshButtons) {
-					if (ui.button(button)) {
-						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, button), [graph, canvas]));
+				for (i in 0...meshButtons.length) {
+					if (ui.button(meshNames[i])) {
+						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, meshButtons[i]), [graph, canvas]));
 					};
 				}
 			}
 			if (ui.panel(Id.handle(), "Texture", 0, true)) {
-				for (button in textureButtons) {
-					if (ui.button(button)) {
-						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, button), [graph, canvas]));
+				for (i in 0...textureButtons.length) {
+					if (ui.button(textureNames[i])) {
+						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, textureButtons[i]), [graph, canvas]));
 					};
 				}
 			}
 			if (ui.panel(Id.handle(), "Color", 0, true)) {
-				for (button in colorButtons) {
-					if (ui.button(button)) {
-						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, button), [graph, canvas]));
+				for (i in 0...colorButtons.length) {
+					if (ui.button(colorNames[i])) {
+						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, colorButtons[i]), [graph, canvas]));
 					};
 				}
 			}
@@ -196,16 +210,16 @@ class FragGraph {
 				};
 			}
 			if (ui.panel(Id.handle(), "Vector", 0, true)) {
-				for (button in vectorButtons) {
-					if (ui.button(button)) {
-						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, button), [graph, canvas]));
+				for (i in 0...vectorButtons.length) {
+					if (ui.button(vectorNames[i])) {
+						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, vectorButtons[i]), [graph, canvas]));
 					};
 				}
 			}
 			if (ui.panel(Id.handle(), "Value", 0, true)) {
-				for (button in valueButtons) {
-					if (ui.button(button)) {
-						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, button), [graph, canvas]));
+				for (i in 0...valueButtons.length) {
+					if (ui.button(valueNames[i])) {
+						pushNode(cast Reflect.callMethod(NodeTypes, Reflect.field(NodeTypes, valueButtons[i]), [graph, canvas]));
 					};
 				}
 			}
