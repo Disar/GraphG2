@@ -68,30 +68,7 @@ class FragGraph {
 		}, 0, 1 / 60);
 		graph = new Nodes();
 		ui = new Zui({font: Assets.fonts.DroidSans, color_wheel: Assets.images.color_wheel});
-		Keyboard.get(0).notify(function(k) {
-			if (k == KeyCode.Delete && graph.nodeSelected != null && graph.nodeSelected.type != "MATERIAL_OUTPUT") {
-				graph.removeNode(graph.nodeSelected, canvas);
-			}
-			if (k == KeyCode.Control) {
-				controlIsDown = true;
-			}
-			if (graph.nodeSelected != null &&
-					graph.nodeSelected.type != "MATERIAL_OUTPUT" &&
-					controlIsDown &&
-					k == KeyCode.C) {
-				NodeTypes.CopyToBufferNode(graph.nodeSelected);
-			}
-			if (controlIsDown && k == KeyCode.V) {
-				NodeTypes.PasteFromBufferNode(graph, canvas);
-			}
-
-			if (k == KeyCode.Insert)
-				GraphParser.parseToGLSL(canvas);
-		}, (k) -> {
-				if (k == KeyCode.Control) {
-					controlIsDown = false;
-				}
-			},(s) -> {});
+		Keyboard.get(0).notify(function(k) {}, (k) -> {},(s) -> {});
 
 		drawGrid();
 		outputImage = Image.createRenderTarget(300, 300);
@@ -110,7 +87,7 @@ class FragGraph {
 			n.x = -graph.panX + appWidth() / 2;
 			n.y = -graph.panY + appHeight() / 2;
 			canvas.nodes.push(n);
-			graph.nodeSelected = n;
+			graph.nodesSelected = [n];
 		}
 	}
 
@@ -229,7 +206,7 @@ class FragGraph {
 			ui.text("Ouput");
 			ui.separator();
 			ui.image(outputImage);
-			if (ui.button("Compile")) {}
+			if (ui.button("Compile")) {	GraphParser.parseToGLSL(canvas);}
 			// if(ui.panel(Id.handle(), "Fragment Shader")){
 			// }
 
@@ -247,5 +224,5 @@ class FragGraph {
 		}
 	}
 
-	var canvas:TNodeCanvas = {nodes: [], links: []}
+	var canvas:TNodeCanvas = {name:"workfield",nodes: [], links: []}
 }

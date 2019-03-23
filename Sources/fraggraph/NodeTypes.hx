@@ -47,46 +47,6 @@ class NodeTypes {
 	private static var bufferNode:TNode;
 	private static var lastX:Float = 0.0;
 	private static var lastY:Float = 0.0;
-	private static var cloner:Cloner = new Cloner();
-
-	public static function CopyToBufferNode(node:TNode):Void {
-		bufferNode = node;
-		lastX = node.x;
-		lastY = node.y;
-	}
-
-	public static function PasteFromBufferNode(graph:Nodes, canvas:TNodeCanvas):Void {
-		if (bufferNode == null)
-			return;
-
-		var node = cloner.clone(bufferNode);
-
-		setUniqueIds(node, graph, canvas);
-		canvas.nodes.push(node);
-		graph.nodeSelected = node;
-
-		lastX -= 15;
-		lastY -= 30;
-
-		node.x = lastX;
-		node.y = lastY;
-	}
-
-	static function setUniqueIds(node:TNode, graph:Nodes, canvas:TNodeCanvas) {
-		var nodeID = graph.getNodeId(canvas.nodes);
-
-		node.id = nodeID;
-
-		for (n in node.inputs) {
-			n.node_id = nodeID;
-			n.id = graph.getSocketId(canvas.nodes);
-		}
-
-		for (n in node.outputs) {
-			n.node_id = nodeID;
-			n.id = graph.getSocketId(canvas.nodes);
-		}
-	}
 
 	@nodeData("Output", "Surface")
 	public static function createSurfaceNode(graph:Nodes, canvas:TNodeCanvas):TNode {
