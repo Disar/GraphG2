@@ -576,7 +576,7 @@ class NodeTypes {
 		var nodeID = graph.getNodeId(canvas.nodes);
 		return {
 			id: nodeID,
-			name: "RGBA",
+			name: "Gradient",
 			type: "RGBA",
 			x: 0,
 			y: 0,
